@@ -1,26 +1,35 @@
 # DOCKER INSTALLATION
 
-Learnt from [**here**](https://ska-telescope.gitlab.io/sim/oskar/)
+Learnt from [**https://ska-telescope.gitlab.io/src/ska-src-training-containers/**](https://ska-telescope.gitlab.io/src/ska-src-training-containers/)
+
+## For Ubuntu/Debian
+Open terminal and run following commands to install Docker:
+1. Uninstall older versions of Docker. Older versions of Docker were called docker, docker.io, or docker-engine.
+   
+   ```sudo apt-get remove docker docker-engine docker.io containerd runc```
+   
+2. Update the apt package index and install packages to allow apt to use a repository over HTTPS:
+
+    ```sudo apt-get update```
+
+    ```sudo apt-get install  ca-certificates curl  gnupg lsb-release```
+    
+3. Add Docker’s official GPG key:
+
+    ```curl -fsSL https://download.docker.com/linux/ubuntu/gpg  | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg```
+    
+ 4. Use the following command to set up the stable repository:
+
+    ```echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null```
+    
+5. Update the apt package index, and install the latest version of Docker Engine and containerd:
+
+    ```sudo apt-get update```
+      
+    ```sudo apt-get install docker-ce docker-ce-cli containerd.io```
+    
+6. Run test image to check installetion:
+      
+     ```sudo docker run hello-world```
 
 
-
-**Essential packages**
-
-```
-sudo apt-get update && 
-sudo apt-get install -y build-essential  libssl-dev uuid-dev libgpgme11-dev casacore-dev cmake git libhdf5-dev python3-dev python3-pip squashfs-tools libseccomp-dev pkg-config
-
-```
-**Download, compile and install OSKAR**
-```
-git clone https://github.com/OxfordSKA/OSKAR.git OSKAR.git
-cmake oskar -DFIND_CUDA=OFF
-make -j16 
-sudo make install
-pip3 install 'git+https://github.com/OxfordSKA/OSKAR.git@master#egg=oskarpy&subdirectory=python'
-
-```
-
-**Install packages**
-
-python3 -m pip install astropy numpy matplotlib scipy shapely h5py progressbar pyuvdata scikit-image cora python-casacore pyfiglet astroquery future pandas plotly seaborn aipy==3.0.1 aegeantools==2.2.0 
