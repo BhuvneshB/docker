@@ -1,4 +1,4 @@
-# OSKAR INSTALLATION
+# DOCKER INSTALLATION
 
 Learnt from [**here**](https://ska-telescope.gitlab.io/sim/oskar/)
 
