@@ -32,4 +32,19 @@ Open terminal and run following commands to install Docker:
       
      ```sudo docker run hello-world```
 
+## Use docker
+Example docker file ```pyglow``` : [IRI pyglow](https://github.com/timduly4/pyglow)
+1. Install the image in docker/making a container of the image
+   
+   ```docker build <image_name>```
+   
+2. Run the unit tests within the container via:
+
+   ```docker run <image_name>```
+      
+3. To enter in Docker container (bash):
+   
+   ```docker run -it <image_name> bash```
+   
+Ex. ```docker run -it pyglow bash```
 
