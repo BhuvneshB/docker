@@ -6,45 +6,71 @@ Learnt from [**https://ska-telescope.gitlab.io/src/ska-src-training-containers/*
 Open terminal and run following commands to install Docker:
 1. Uninstall older versions of Docker. Older versions of Docker were called docker, docker.io, or docker-engine.
    
-   ```sudo apt-get remove docker docker-engine docker.io containerd runc```
+   ```bash
+   sudo apt-get remove docker docker-engine docker.io containerd runc
+   ```
    
-2. Update the apt package index and install packages to allow apt to use a repository over HTTPS:
+3. Update the apt package index and install packages to allow apt to use a repository over HTTPS:
 
-    ```sudo apt-get update```
+    ```bash
+   sudo apt-get update
+    ```
 
-    ```sudo apt-get install  ca-certificates curl  gnupg lsb-release```
+    ```bash
+   sudo apt-get install  ca-certificates curl  gnupg lsb-release
+    ```
     
-3. Add Docker’s official GPG key:
+5. Add Docker’s official GPG key:
 
-    ```curl -fsSL https://download.docker.com/linux/ubuntu/gpg  | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg```
+    ```bash
+   curl -fsSL https://download.docker.com/linux/ubuntu/gpg  | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+    ```
     
- 4. Use the following command to set up the stable repository:
+ 7. Use the following command to set up the stable repository:
 
-    ```echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null```
+    ```bash
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    ```
     
-5. Update the apt package index, and install the latest version of Docker Engine and containerd:
+9. Update the apt package index, and install the latest version of Docker Engine and containerd:
 
-    ```sudo apt-get update```
+    ```bash
+   sudo apt-get update
+    ```
       
-    ```sudo apt-get install docker-ce docker-ce-cli containerd.io```
+    ```bash
+   sudo apt-get install docker-ce docker-ce-cli containerd.io
+    ```
     
-6. Run test image to check installetion:
+8. Run a test image to check installation:
       
-     ```sudo docker run hello-world```
+     ```bash
+   sudo docker run hello-world
+     ```
 
 ## Use docker
 Example docker file ```pyglow``` : [IRI pyglow](https://github.com/timduly4/pyglow)
 1. Install the image in docker/making a container of the image
    
-   ```docker build -t <image_name> .```      [Note=> Image name should be in lower case]
+   ```bash
+   docker build -t <image_name> .
+   ```
+   [Note=> Image name should be in lower case]
    
-2. Run the unit tests within the container via:
+3. Run the unit tests within the container via:
 
-   ```docker run <image_name>```
+   ```bash
+   docker run <image_name>
+   ```
       
-3. To enter in Docker container (bash):
+5. To enter in Docker container (bash):
    
-   ```docker run -it <image_name> bash```
+   ```bash
+   docker run -it <image_name> bash
+   ```
    
-Ex. ```docker run -it pyglow bash```
+Ex. 
+```bash
+docker run -it pyglow bash
+```
 
